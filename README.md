@@ -5,9 +5,9 @@
 
 ---
 
-### Name: 
-### Student Id: 
-### Email: 
+### Name: YAN, Zhangcheng
+### Student Id: 20949252
+### Email: zyanbh@connect.ust.hk
 
 ---
 
