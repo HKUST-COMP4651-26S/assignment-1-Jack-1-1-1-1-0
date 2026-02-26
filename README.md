@@ -15,7 +15,7 @@
 
 1. (1 mark) Report the name of measurement tool used in your measurements (you are free to choose *any* open source measurement software as long as it can measure CPU and memory performance). Please describe your configuration of the measurement tool, and explain why you set such a value for each parameter. Explain what the values obtained from measurement results represent (e.g., the value of your measurement result can be the execution time for a scientific computing task, a score given by the measurement tools or something else).
 
-    > I used sysbench with 4 threads and time limit to be 10 seconds. This should allow a reasonable amount of task to be completed within the time limit. For CPU performance, we measured the CPU speed in amount of events per second, and for memory, we measured amount written to memory per second. 
+    > I used sysbench with 4 threads and time limit to be 10 seconds. This should allow a reasonable amount of task to be completed within the time limit. For CPU performance, I measured the CPU speed in amount of events per second, and for memory, I measured amount written to memory per second. 
 
 2. (1 mark) Run your measurement tool on general purpose `t2.micro`, `t2.medium`, and `c5d.large` Linux instances, respectively, and find the performance differences among these instances. Launch all the instances in the **US East (N. Virginia)** region. Does the performance of EC2 instances increase commensurate with the increase of the number of vCPUs and memory resource?
 
@@ -35,12 +35,12 @@
 
     | Type                      | TCP b/w (Mbps) | RTT (ms) |
     | ------------------------- | -------------- | -------- |
-    | `t3.medium` - `t3.medium` |                |          |
-    | `m5.large` - `m5.large`   |                |          |
-    | `c5n.large` - `c5n.large` |                |          |
-    | `t3.medium` - `c5n.large` |                |          |
-    | `m5.large` - `c5n.large`  |                |          |
-    | `m5.large` - `t3.medium`  |                |          |
+    | `t3.medium` - `t3.medium` |   4760         | 0.235    |
+    | `m5.large` - `m5.large`   |   8660         | 0.104    |
+    | `c5n.large` - `c5n.large` |   4950         | 0.235    |
+    | `t3.medium` - `c5n.large` |   2630         | 0.571    |
+    | `m5.large` - `c5n.large`  |   2340         | 0.746    |
+    | `m5.large` - `t3.medium`  |   1910         | 0.992    |
 
     > Region: US East (N. Virginia). Use `Ubuntu Server 22.04 LTS (HVM)` as AMI. Note: Use private IP address when using iPerf within the same region. You'll need iPerf for measuring TCP bandwidth and Ping for measuring Round-Trip time.
 
@@ -48,8 +48,8 @@
 
     | Connection                | TCP b/w (Mbps) | RTT (ms) |
     | ------------------------- | -------------- | -------- |
-    | N. Virginia - Oregon      |                |          |
-    | N. Virginia - N. Virginia |                |          |
-    | Oregon - Oregon           |                |          |
+    | N. Virginia - Oregon      | 25.4           | 56.677   |
+    | N. Virginia - N. Virginia | 4750           | 0.348    |
+    | Oregon - Oregon           | 4780           | 0.175    |
  
     > Region: US East (N. Virginia), US West (Oregon). Use `Ubuntu Server 22.04 LTS (HVM)` as AMI. All instances are `c5.large`. Note: Use public IP address when using iPerf within the same region.
